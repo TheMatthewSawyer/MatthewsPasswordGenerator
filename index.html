@@ -166,7 +166,7 @@
               <div class="col-md-4"></div>
 
               <div class="col-md-6">
-                <input class="form-control form-control-sm passLengthField" type="text" maxlength="3">
+                <input id="passwordLengthField" class="form-control form-control-sm passLengthField" type="text" maxlength="3">
                 <small id="lengthInfo" class="form-text">(from 8 to 128)</small>
               </div>
 
@@ -181,11 +181,11 @@
       <div class="row btnContainer">
 
         <div class="col-md-6">
-          <button class="btn btn-danger btn-lg btnFormat" id="generate">Generate Password</button>
+          <button class="btn btn-danger btn-lg btnFormat" id="generate" onclick="inputValidate()">Generate Password</button>
         </div>
 
         <div class="col-md-6">
-          <button class="btn btn-outline-danger btn-lg btnFormat" id="copy">Copy to Clipboard</button>
+          <button class="btn btn-outline-danger btn-lg btnFormat" id="copy" onclick="copyNewPass()">Copy to Clipboard</button>
         </div>
 
       </div>
