@@ -3,19 +3,21 @@ var numbers = ["0","1","2","3","4","5","6","7","8","9"];
 var uppercaseLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var lowercaseLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
+
 function inputValidate() {
+    clear();
     var passwordLength = document.getElementById('passwordLengthField').value;
     if (passwordLength === "" || passwordLength === " " || passwordLength === "  " || passwordLength === "   ") {
-        alert("Do not leave password length field empty.");
+        errorMessage("Do not leave password length field empty.");        
         return;
     }
     if (/[^0-9]/.test(passwordLength)){
-        alert("Only enter numbers in the password length field");
+        errorMessage("Only enter numbers in the password length field");
         return;
     }
     passwordLength = parseInt(passwordLength);
     if (passwordLength > 128 || passwordLength < 8) {
-        alert("Make sure your number is between 8 and 128");
+        errorMessage("Make sure your number is between 8 and 128");
         return;
     }
     generatePassword(passwordLength);
@@ -37,7 +39,7 @@ function generatePassword(passwordLength) {
         userSelection = userSelection.concat(uppercaseLetters);
     }
     if (userSelection.length < 1) {
-        alert("Please select at least one option")
+        errorMessage("Please select at least one option");
         return;
     }
     for (var i = 0; i < passwordLength; i++) {
@@ -51,4 +53,27 @@ function copyNewPass() {
     document.execCommand('copy');
     window.getSelection().removeAllRanges();
     return;
+}
+
+function errorMessage(x) {
+    document.getElementById("errorContainer").innerHTML = x;
+    document.getElementById("errorContainer").style.visibility = "visible";
+    if (x === "Please select at least one option") {
+        var pTags = document.getElementsByClassName("opTxt");
+        for (var i = 0; i < 4; i++) {
+            pTags[i].style.backgroundColor = "red";
+        }
+    }
+    else {
+    document.getElementById("passwordLengthField").style.border = "red 3px solid";
+    }
+}
+
+function clear() {
+    document.getElementById("errorContainer").style.visibility = "hidden";
+    document.getElementById("passwordLengthField").style.border = "none";
+    var pTags = document.getElementsByClassName("opTxt");
+    for (var i = 0; i < 4; i++) {
+        pTags[i].style.backgroundColor = "lightcoral";
+    }
 }
