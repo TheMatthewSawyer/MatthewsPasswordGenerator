@@ -20,68 +20,176 @@
       <h1>Password Generator</h1>
     </header>
 
-    <div class="container shadow p-3 mb-5 bg-white rounded">
-      <div class="margin">
+    <div class="container shadow p-3 mb-5 bg-white rounded" style="max-width: 720px;">
 
+      <div class="row">
+
+        <div class="col-md-12">
+          <h2>Generate a Password</h2>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-12 textAreaMargin">
+          <textarea
+            readonly
+            id="password"
+            placeholder="Your Secure Password"
+            aria-label="Generated Password"
+          ></textarea>
+        </div>
+
+      </div>
+      
+      <div class="options">
+        
         <div class="row">
-
+          
           <div class="col-md-12">
-            <h2>Generate a Password</h2>
+            <h5>Options</h5>
           </div>
 
         </div>
+        <div class="row innerColor">
 
-        <div class="row">
+          <div class="col-md-6">
 
-          <div class="col-md-12">
-            <textarea
-              readonly
-              id="password"
-              placeholder="Your Secure Password"
-              aria-label="Generated Password"
-            ></textarea>
-          </div>
-
-        </div>
-        
-        <div class="options">
-        
-          <div class="row">
-            
-            <div class="col-md-6">
+            <div class="row">
               
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                <label class="form-check-label" for="exampleRadios1">
-                  Default radio
-                </label>
+              <div class="col-md-4">
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Special<br>&nbsp;&nbsp;Characters?</p>
               </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                <label class="form-check-label" for="exampleRadios2">
-                  Second radio
-                </label>
+
+              <div class="col-md-2">
+                
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="specialCharacters" id="specialCharactersYes" value="1" checked>
+                  <label class="form-check-label" for="specialCharactersYes">
+                    Yes
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="specialCharacters" id="specialCharactersNo" value="0">
+                  <label class="form-check-label" for="specialCharactersNo">
+                    No
+                  </label>
+                </div>
+
+              </div>
+            
+              <div class="col-md-4">
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Include<br>&nbsp;&nbsp;&nbsp;Numbers?</p>
+              </div>
+
+              <div class="col-md-2">
+                
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="numbers" id="numbersYes" value="1" checked>
+                  <label class="form-check-label" for="numbersYes">
+                    Yes
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="numbers" id="numbersNo" value="0">
+                  <label class="form-check-label" for="numbersNo">
+                    No
+                  </label>
+                </div>
+
+              </div>
+              
+            </div>
+
+            <div class="row">
+
+              <div class="col-md-4">
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Include<br>&nbsp;&nbsp;Lowercase?</p>
+              </div>
+
+              <div class="col-md-2">
+                
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="lowercase" id="lowercaseYes" value="1" checked>
+                  <label class="form-check-label" for="lowercaseYes">
+                    Yes
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="lowercase" id="lowercaseNo" value="0">
+                  <label class="form-check-label" for="lowercaseNo">
+                    No
+                  </label>
+                </div>
+
+              </div>
+
+              <div class="col-md-4">
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Include<br>&nbsp;&nbsp;Uppercase?</p>
+              </div>
+
+              <div class="col-md-2">
+                
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="uppercase" id="uppercaseYes" value="1" checked>
+                  <label class="form-check-label" for="uppercaseYes">
+                    Yes
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="uppercase" id="uppercaseNo" value="0">
+                  <label class="form-check-label" for="uppercaseNo">
+                    No
+                  </label>
+                </div>
+
               </div>
 
             </div>
-          
           </div>
-          
+    
+          <div class="col-md-6">
+            
+            <div class="row">
+              
+              <div class="col-md-3"></div>
+              
+              <div class="col-md-7">
+                <p class="passLength">Password Length:</p>
+              </div>
+
+            </div>
+
+            <div class="row">
+              
+              <div class="col-md-4"></div>
+
+              <div class="col-md-6">
+                <input class="form-control form-control-sm passLengthField" type="text" maxlength="3">
+                <small id="lengthInfo" class="form-text">(from 8 to 128)</small>
+              </div>
+
+            </div>
+
+          </div>
+        
         </div>
 
-        <div class="row">
-          
-          <div class="col-md-6">
-            <button id="generate">Generate Password</button>
-          </div>
-
-          <div class="col-md-6">
-            <button id="copy">Copy to Clipboard</button>
-          </div>
-
-        </div>
-      
       </div>
+
+      <div class="row btnContainer">
+
+        <div class="col-md-6">
+          <button class="btn btn-danger btn-lg btnFormat" id="generate">Generate Password</button>
+        </div>
+
+        <div class="col-md-6">
+          <button class="btn btn-outline-danger btn-lg btnFormat" id="copy">Copy to Clipboard</button>
+        </div>
+
+      </div>
+      
     </div>
   
   </body>
