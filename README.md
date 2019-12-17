@@ -19,7 +19,7 @@ Testing can be done through an internet browser or chrome with the inspect tool 
 1. Microsoft Visual Studio Code
     1. https://code.visualstudio.com/
 2. Bootstrap
-    2. https://getbootstrap.com/
+    1. https://getbootstrap.com/
 3. GitHub (Where you are now :grin:)
-    3. https://github.com/
+    1. https://github.com/
 
